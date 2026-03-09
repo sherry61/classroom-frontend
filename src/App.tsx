@@ -33,17 +33,17 @@ function App() {
                 warnWhenUnsavedChanges: true,
                 projectId: "qhCV5n-8wawui-Sqe2Tt",
               }}
-              // resources={[
-              //   {
-              //     name: 'dashboard', list: '/', meta: { label: 'Home', icon: <Home />}
-              //   },
-              //   {
-              //     name: 'subjects',
-              //     list: '/subjects',
-              //     create: '/subjects/create',
-              //     meta: { label: 'Subjects', icon: <BookOpen />}
-              //   }
-              // ]}
+              resources={[
+                {
+                  name: 'dashboard', list: '/', meta: { label: 'Home', icon: <Home />}
+                },
+                {
+                  name: 'subjects',
+                  list: '/subjects',
+                  create: '/subjects/create',
+                  meta: { label: 'Subjects', icon: <BookOpen />}
+                }
+              ]}
             >
               <Routes>
                 <Route element={
