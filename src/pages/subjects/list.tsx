@@ -1,15 +1,25 @@
-import {ListView} from "@/components/refine-ui/views/list-view.tsx";
-import {Breadcrumb} from "@/components/refine-ui/layout/breadcrumb.tsx";
-import {Badge, Search} from "lucide-react";
-import {Input} from "@/components/ui/input.tsx";
-import {useMemo, useState} from "react";
-import {Select, SelectContent, SelectItem, SelectTrigger, SelectValue} from "@/components/ui/select.tsx";
-import {DEPARTMENT_OPTIONS} from "@/constants";
-import {CreateButton} from "@/components/refine-ui/buttons/create.tsx";
-import {DataTable} from "@/components/refine-ui/data-table/data-table.tsx";
-import {useTable} from "@refinedev/react-table";
-import {Subject} from "@/types";
-import {ColumnDef} from "@tanstack/react-table";
+import { Search } from "lucide-react";
+import { useMemo, useState } from "react";
+import { useTable } from "@refinedev/react-table";
+import { ColumnDef } from "@tanstack/react-table";
+
+import {
+    Select,
+    SelectContent,
+    SelectItem,
+    SelectTrigger,
+    SelectValue,
+} from "@/components/ui/select";
+import { Badge } from "@/components/ui/badge";
+import { Input } from "@/components/ui/input";
+import { ListView } from "@/components/refine-ui/views/list-view";
+import { CreateButton } from "@/components/refine-ui/buttons/create";
+import { Breadcrumb } from "@/components/refine-ui/layout/breadcrumb";
+import { DataTable } from "@/components/refine-ui/data-table/data-table";
+import { ShowButton } from "@/components/refine-ui/buttons/show";
+
+import { Subject } from "@/types";
+import { DEPARTMENT_OPTIONS } from "@/constants";
 
 const SubjectsList = () => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -46,11 +56,10 @@ const SubjectsList = () => {
                 },
                 {
                     id: 'department',
-                    accessorKey: 'department',
+                    accessorKey: 'department.name',
                     size: 150,
                     header: () => <p className="column-title">Department</p>,
-                    cell: ({ getValue }) => <Badge
-                        variant="secondary">{getValue<string>()}</Badge>,
+                    cell: ({ getValue }) => <Badge variant="secondary">{getValue<string>()}</Badge>,
                 },
                 {
                     id: 'description',
